@@ -19,7 +19,7 @@ public class Base {
         public final String BROWSER_TYPE = "chrome";
 
         public void OpenBrowser(){
-            String ConfigFilePath = System.getProperty("user.dir")+ "/Users/ghezalhaqjo/Desktop/final-project/BDD-framework-final-project/src/test/resources/config/dev.env.cofig.properties";
+            String ConfigFilePath = System.getProperty("user.dir")+ "/src/test/resources/config/dev.env.cofig.properties";
 
             Properties properties = new Properties();
 
