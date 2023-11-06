@@ -2,10 +2,11 @@
 Feature: Testing create account feature
   Background: setup test
     When click on create primary account button
+
   @US_2
   Scenario: validate create account should be Create Primary Account Holder
-    When click on create primary account button
     Then validate create account title should be "Create Primary Account Holder"
+
   @US_3
   Scenario: Fill up Create account holder form and validate Sign up and email address
     When enter Email Address

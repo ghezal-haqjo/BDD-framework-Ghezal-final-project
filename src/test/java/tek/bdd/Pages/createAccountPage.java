@@ -16,4 +16,6 @@ public class createAccountPage {
     public final static By PAGE_HEADER_TITLE = By.xpath("//div/div[2]/div/div/div/h2[1]");
     public final static By ACTUAL_EMAIL = By.xpath("//div/div/h2[3]");
     public final static By ERROR_MESSAGE = By.xpath("//div/form/div[1]/div");
+    public final static  By PAGE_TITLE = By.xpath("/html/body/div[1]/div/div[2]/div/div/div/h2");
+
 }

@@ -3,7 +3,6 @@ package tek.bdd.Steps;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import junit.framework.Assert;
-import tek.bdd.Pages.Homepage;
 import tek.bdd.Pages.UserProfile;
 import tek.bdd.Utality.SelenuiamUtality;
 
@@ -73,7 +72,7 @@ public class UserprofileSteps extends SelenuiamUtality {
 
     @Then("validate user is in {string} homepage")
     public void validateUserIsInHomepage(String expected) {
-        String actual = getElementText(Homepage.PAGE_HEADER_TITLE);
+        String actual = getElementText(UserProfile.PAGE_HEADER_TITLE);
         Assert.assertEquals(actual,expected);
     }
 }

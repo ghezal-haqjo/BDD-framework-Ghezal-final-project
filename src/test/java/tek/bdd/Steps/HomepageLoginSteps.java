@@ -26,18 +26,6 @@ public class HomepageLoginSteps extends SelenuiamUtality {
     }
 
 
-    @When("click on create primary account button")
-    public void clickOnPrimaryAccountButton() {
-       clickOnElement(Homepage.CREATE_PRIMARY_ACCOUNT_BUTTON);
-
-    }
-
-    @Then("validate create account title should be {string}")
-    public void validateCreateAccountTitle(String expectedTitle) {
-        String ActualTitle = getElementText(Homepage.PAGE_TITLE);
-        Assert.assertEquals(expectedTitle, ActualTitle);
-
-    }
 
 
 }

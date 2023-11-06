@@ -17,4 +17,5 @@ public class UserProfile {
     public static final By AUTHORITIES_NAME = By.xpath("//div/div/div/div/div/div[5]/p");
     public static final By ADMIN_NAME = By.xpath("//div/div/div/div/div/div[5]/ul/li");
     public static final By LOG_OUT_BUTTON = By.xpath("/html/body/div[3]/div[3]/div/div/footer/div/button[1]");
+    public final static  By PAGE_HEADER_TITLE = By.xpath("/html/body/div[1]/div/div[1]/div/h2");
 }

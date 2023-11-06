@@ -3,6 +3,7 @@ package tek.bdd.Steps;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import tek.bdd.Pages.Homepage;
 import tek.bdd.Pages.createAccountPage;
 import tek.bdd.Utality.SelenuiamUtality;
 
@@ -78,4 +79,17 @@ public class CreateAccountSteps extends SelenuiamUtality {
     public void enterEmailAddressAs(String expected) {
         enterValue(createAccountPage.EMAIL_ADDRESS, expected);
     }
+    @When("click on create primary account button")
+    public void clickOnPrimaryAccountButton() {
+        clickOnElement(Homepage.CREATE_PRIMARY_ACCOUNT_BUTTON);
+
+    }
+
+    @Then("validate create account title should be {string}")
+    public void validateCreateAccountTitle(String expectedTitle) {
+        String ActualTitle = getElementText(createAccountPage.PAGE_TITLE);
+        Assert.assertEquals(expectedTitle, ActualTitle);
+
+    }
+
 }
