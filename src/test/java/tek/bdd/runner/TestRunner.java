@@ -6,12 +6,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath; features",
+        features = "classpath:features",
         glue = "tek.bdd.Steps",
         tags = "@smoke",
         dryRun = false,
-        plugin ={
-                "html:target/html_report/report.html"
+        plugin = {
+                "html:target/html_report/report.html",
+                "json:target/jsonReports/report.json"
         }
 )
 public class TestRunner {
