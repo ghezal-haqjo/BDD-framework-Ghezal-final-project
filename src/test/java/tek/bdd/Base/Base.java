@@ -16,36 +16,46 @@ public class Base {
 
         private static WebDriver driver;
         private final String APP_URL ="https://dev.insurance.tekschool-students.com/";
-        public final String BROWSER_TYPE = "chrome";
 
-        public void OpenBrowser(){
-            String ConfigFilePath = System.getProperty("user.dir")+ "/src/test/resources/config/dev.env.config.properties";
+            public void OpenBrowser() {
+                //step to read a property file
+                //step 1) the absolute file path the property file.
+                String configPath = System.getProperty("user.dir")+"/src/test/resources/config/dev.env.cofig.properties";
+                //step 2) create object from properties class in java library.
+                Properties properties = new Properties();
+                //step 3) LOAD OBJECT FROM PROPERTIES CLASS IN JAVA Library.
+                try {
+                    FileInputStream devConfigFile = new FileInputStream(configPath);
+                    properties.load(devConfigFile);
+                }catch (IOException e){//is a class
+                    e.printStackTrace();//print exception
+                }
 
+                String devURL = properties.getProperty("ui.url");
+                String browserType = properties.getProperty("ui.browser.type");
 
-
-            if(BROWSER_TYPE.equalsIgnoreCase("chrome")) {
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless");
-                driver = new ChromeDriver( options );
-            }else if(BROWSER_TYPE.equalsIgnoreCase("firefox")) {
-                driver = new FirefoxDriver();
-            }else if  (BROWSER_TYPE.equalsIgnoreCase("edge")) {
-                driver = new EdgeDriver();
-            }else{
-                throw new RuntimeException("Wrong Browser Type");
-
+                if (browserType.equalsIgnoreCase("chrome")) {
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--headless");
+                    driver = new ChromeDriver(options);
+                } else if (browserType.equalsIgnoreCase("firefox")) {
+                    driver = new FirefoxDriver();
+                } else if (browserType.equalsIgnoreCase("edge")) {
+                    driver = new EdgeDriver();
+                } else {
+                    throw new RuntimeException("Wrong Browser Type");
+                }
+                driver.manage().window().maximize();
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+                driver.get(APP_URL);
             }
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-           driver.get(APP_URL);
-
-
+            public WebDriver GetDriver() {
+                return driver;
+            }
+            public void driverQuit() {
+                if (driver != null) {
+                    GetDriver().quit();
+                }
+            }
         }
-        public WebDriver GetDriver(){
-            return driver;
-        }
-public void driverQuit(){
-            if(driver != null){
-            driver.close();
-}
-}}
+
