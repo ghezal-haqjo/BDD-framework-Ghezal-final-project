@@ -56,7 +56,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>Knight Cucumber Framework</projectName>
+                            <projectName>BDD-framework-final-project</projectName>
                             <skip>false</skip>
                             <outputDirectory>${project.build.directory}/cucumber-report</outputDirectory>
                             <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
