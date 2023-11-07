@@ -1,4 +1,4 @@
-@Regression
+@smoke
 Feature:Testing profile section
   Background:
     When click on login button

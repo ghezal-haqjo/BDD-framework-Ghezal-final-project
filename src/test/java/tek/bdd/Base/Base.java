@@ -19,24 +19,14 @@ public class Base {
         public final String BROWSER_TYPE = "chrome";
 
         public void OpenBrowser(){
-            String ConfigFilePath = System.getProperty("user.dir")+ "/src/test/resources/config/dev.env.cofig.properties";
-
-            Properties properties = new Properties();
-
-            try {
-                FileInputStream configFile = new FileInputStream(ConfigFilePath);
-                properties.load(configFile);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            String ConfigFilePath = System.getProperty("user.dir")+ "/src/test/resources/config/dev.env.config.properties";
 
 
 
             if(BROWSER_TYPE.equalsIgnoreCase("chrome")) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless");
-                driver = new ChromeDriver(options);
+                driver = new ChromeDriver( options );
             }else if(BROWSER_TYPE.equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }else if  (BROWSER_TYPE.equalsIgnoreCase("edge")) {
